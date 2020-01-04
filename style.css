@@ -1,0 +1,403 @@
+/*
+Theme Name: My first Woocommerce site
+Author: Manli
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    color: #0d0d0d;
+    background: #E5E5E5;
+    width: 100%;
+}
+
+p {
+    line-height: 150%;
+    letter-spacing: 1px;
+}
+
+.mega-menu p {
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.section--padding {
+    padding: 9vw;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/* ===============
+   NAV BAR STYLING 
+   =============== */
+
+nav {
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    background: #0d0d0d;
+    display: flex;
+    padding: 0 9vw 0 9vw;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.logo {
+    min-width: 130px;
+    width: 130px;
+}
+
+.logo > img {
+    width: 100%;
+}
+
+.nav-links ul {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ================
+   SUB MENU ARROWS 
+   ================ */
+
+.is-mega-menu > a::after {
+    color: #fff;
+    content: ' ▼';
+    font-size: 10px;
+    vertical-align: 1px;
+}
+
+.is-mega-menu > a:hover::after {
+    color: #0d0d0d;
+}
+
+.is-mega-menu a:hover > ul {
+    display: block;
+} 
+
+/* =================
+   MEGA MENU STYLING 
+   ================= */
+
+.is-mega-menu a {
+    padding-bottom: 30px;
+}
+
+.mega-menu {
+    width: 100%;
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    background: #1E1E1E;
+    display: none;
+    padding: 2vw 9vw;
+}   
+
+.is-mega-menu a:hover + .mega-menu, .mega-menu:hover {
+    display: flex;
+}
+
+.mega-menu-column ul {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7;
+    display: block;
+    float: left;
+}
+
+.mega-menu-title, .subnav {
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.mega-menu p {
+    color: #fff;
+    display: block;
+}
+
+img.subnav-img {
+    width: 100px;
+    float: right;
+    margin-right: 70px;
+}
+
+.mega-menu-column--small {
+    width: 250px;
+}
+
+.mega-menu-column--big {
+    margin-left: -100px;
+}
+
+.new-items-container {
+    display: flex;
+    width: 600px;
+}
+
+.new-items-container > img {
+    padding-right: 20px;
+}
+
+/* ==================
+   SEARCH BAR STYLING 
+   ================== */
+
+.search-bar input[type=text] {
+    border: none;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: .9rem;
+    color: #fff;
+    width: 300px;
+}
+
+.search-bar input[type=text]::placeholder {
+    color: #fff;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+}
+
+.search-bar {
+    border-bottom: #fff 1px solid;
+    margin: 0 50px 0 50px;
+}
+
+.user-functions {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ===============
+   LANDING SECTION 
+   =============== */
+
+.landing {
+    width: 100%;
+}
+
+.landing > img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.landing h1 {
+    color: #fff;
+    font-size: calc(40px + (58 - 40) * ((100vw - 300px) / (1600 - 300)));
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+}
+
+.landing h1::before, 
+.landing h1::after {
+    content: '';
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+
+.landing h1::after { 
+    background-color:#0d0d0d;
+    width: 100%;
+    top: 0;
+    left: -20px;
+    z-index: -2;
+    padding-right: 40px;
+    transform: skew(-10deg);
+}
+
+.landing h3 {
+    color: #fff;
+    font-size: calc(22px + (27 - 22) * ((100vw - 300px) / (1600 - 300)));
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    text-align: center;
+    width: calc(350px + (550 - 300) * ((100vw - 300px) / (1600 - 300)));
+    text-shadow: 3px 2px 0 #0d0d0d;
+}
+
+@media screen and (max-width: 850px) {
+    .landing h1{
+        top: 32%;
+    }
+
+    .landing h3 {
+        top: 55%;
+    }
+}
+
+.button-container--landing {
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* ==============
+   BUTTON STYLING 
+   ============== */
+
+.button-container {
+    position: static;
+    z-index: 1;
+}
+
+.button {
+    position: relative;
+    background: #fff;
+    color: #0d0d0d;
+    padding: 15px 60px;
+    border: 2px solid #0d0d0d;
+    letter-spacing: 2px;
+}
+
+.button--small {
+    padding: 15px 40px;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: -9px;
+    bottom: -9px;
+    background: linear-gradient(to right, #E635D6, #41F6CB);
+    border: 2px solid #0d0d0d;
+    z-index: -10;
+}
+
+@media screen and (max-width: 850px) {
+    .button-container--landing {
+        top: 82%;
+    }
+}
+
+/* ====================
+   INTRODUCTION SECTION 
+   ==================== */
+
+.intro {
+    text-align: center;
+}
+
+h2 {
+    font-size: calc(25px + (38 - 25) * ((100vw - 300px) / (1600 - 300)));
+    font-style: italic;
+    padding-bottom: 20px;
+}
+
+h4 {
+    font-size: calc(18px + (21 - 18) * ((100vw - 300px) / (1600 - 300)));
+    margin: 0 auto;
+    font-weight: 400;
+    width: calc(300px + (900 - 300) * ((100vw - 300px) / (1600 - 300)));
+}
+
+/* =======================
+   VINTAGE CATALOG SECTION 
+   ======================= */
+
+.scroll-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    display: flex;
+    scroll-snap-type: block mandatory;
+}
+
+h5 {
+    font-size: calc(18px + (28 - 18) * ((100vw - 300px) / (1600 - 300)));
+    font-style: italic;
+    padding: 20px 0 20px 0;
+}
+
+.front-img {
+    height: 80vh;
+    margin: 0 60px 0 20px;
+}
+
+.grid-container p {
+    width: 80%;
+}
+
+.background-img {
+    height: 92vh;
+}
+
+/* ====
+   GRID 
+   ==== */
+
+.grid-container {
+    display: grid;
+    min-width: 98%;
+    grid-template-columns: 1fr auto-fit 2fr .5fr 4fr;
+    scroll-snap-align: start;
+}
+
+.grid-container--fullwidth {
+    min-width: 100%;
+}
+
+.grid-container li:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 8;
+    z-index: -1;
+}
+
+.grid-container li:nth-child(2) {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 8;
+    align-self: center;
+}
+
+.grid-container li:nth-child(3) {
+    grid-column: 5 / span 1;
+    grid-row: 3 / span 1;
+}
+
+.grid-container li:nth-child(4) {
+    grid-column: 5 / span 1;
+    grid-row: 5 / span 1;
+}
+
+
+
+
+
