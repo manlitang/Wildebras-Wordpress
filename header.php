@@ -9,15 +9,25 @@
 
     <?php wp_head();?>
 </head>
-<body>
+<body id="body-id">
 <header>
     <nav>
+        <div id="burger-button" class="burger">
+	        <div class="line1"></div>
+	        <div class="line2"></div>
+	        <div class="line3"></div>
+        </div>  
         <a class="logo" href="<?php echo get_bloginfo( 'wpurl' );?>">
             <img src="<?php bloginfo('template_directory');?>/images/logo1.png" alt="Wildebras Clothing logo">
         </a>
 
-        <div class="nav-links">
+        <div class="nav-links nav-links--mobile">
     <ul>
+        <div class="search-bar search-bar--mobile">
+            <input type="text" placeholder="Search product...">
+            <button type="submit"><img src="<?php bloginfo('template_directory');?>/images/search.svg" alt="Search product"></button>
+        </div>
+
         <?php $locations = get_nav_menu_locations();
         // if there's a location for the primary menu
         if (isset( $locations['top-menu'])) {
@@ -44,12 +54,14 @@
                                 if ($item->title == "Shop vintage") {
                                     echo "mega-menu-column--small";
                                 }
-                            ?>
-                            mega-menu-column">
+                                if ($item->title == "Shop collections") {
+                                    echo "mega-menu-column--biggest";
+                                }
+                            ?> mega-menu-column">
                                 <ul>
                                 <?php
                                     if ($item->title == "Shop vintage") {
-                                        echo "<li class=\"mega-menu-title\"><a href=\"#\">Shop by product</a></li>";
+                                        echo "<li class=\"mega-menu-title\" id=\"shop-by-product\"><a href=\"#\">Shop by product</a></li>";
                                     }
                                 ?>
                                 <?php // cycle through the menu items and get the subnav
@@ -69,11 +81,18 @@
                                 ?>
                                 
                             </div>
-                            <div class="mega-menu-column">
+                            <div class="<?php 
+                                if ($item->title == "Shop vintage") {
+                                    echo "mega-menu-column--small";
+                                }
+                                if ($item->title == "Shop collections") {
+                                    echo "mega-menu-column--biggest";
+                                }
+                            ?> mega-menu-column">
                                 <ul>
                                 <?php
                                     if ($item->title == "Shop vintage") {
-                                        echo "<li class=\"mega-menu-title\"><a href=\"#\">Shop by brand</a></li>";
+                                        echo "<li class=\"mega-menu-title\" id=\"shop-by-brand\"><a href=\"#\">Shop by brand</a></li>";
                                     }
                                 ?>
                                 <?php // cycle through the menu items and get the subnav
@@ -97,11 +116,11 @@
                                 if ($item->title == "Shop vintage") {
                                     ?> <div class="mega-menu-column mega-menu-column--big">
                                         <ul>
-                                            <li class="mega-menu-title"><a href="#">What's new</a></li>
+                                            <li class="mega-menu-title mega-menu-title--new"><a href="#">What's new</a></li>
                                             <div class="new-items-container">
-                                                <img src="<?php bloginfo('template_directory');?>/images/subnav1.jpg" alt="New products">
-                                                <img src="<?php bloginfo('template_directory');?>/images/subnav2.jpg" alt="New products">
-                                                <img src="<?php bloginfo('template_directory');?>/images/subnav3.jpg" alt="New products">
+                                                <img src="<?php bloginfo('template_directory');?>/images/navimg1.jpg" alt="New products">
+                                                <img src="<?php bloginfo('template_directory');?>/images/navimg2.jpg" alt="New products">
+                                                <img src="<?php bloginfo('template_directory');?>/images/navimg3.jpg" alt="New products">
                                             </div>
                                         </ul>
                                     </div>
@@ -114,18 +133,38 @@
                     }
                 }
             } ?>
+            <div class="user-functions user-functions--mobile">
+                <div class="user-function--mobile">
+                    <div class="user-function-icon">
+                        <img src="<?php bloginfo('template_directory');?>/images/user-icon.svg" alt="User log in">
+                    </div>
+                    <a href="#">Log in</a>
+                </div>
+                <div class="user-function--mobile">
+                    <div class="user-function-icon">
+                        <img src="<?php bloginfo('template_directory');?>/images/heart-icon.svg" alt="Favourites">
+                    </div>    
+                    <a href="#">Faves</a>
+                </div>
+                <div class="user-function--mobile">
+                    <div class="user-function-icon">
+                        <img src="<?php bloginfo('template_directory');?>/images/bag-icon.svg" alt="Add to bag">
+                    </div>
+                    <a href="#">Bag</a>
+                </div>
+            </div>
     </ul>
 </div>
 
-        <div class="search-bar">
+        <div class="search-bar search-bar--desktop">
             <input type="text" placeholder="Search product...">
             <button type="submit"><img src="<?php bloginfo('template_directory');?>/images/search.svg" alt="Search product"></button>
         </div>
 
-        <div class="user-functions">
-            <img src="<?php bloginfo('template_directory');?>/images/user.svg" alt="User log in">
-            <img src="<?php bloginfo('template_directory');?>/images/heart.svg" alt="Favourites">
-            <img src="<?php bloginfo('template_directory');?>/images/shoppingbag.svg" alt="Add to bag">
+        <div class="user-functions user-functions--desktop">
+            <img src="<?php bloginfo('template_directory');?>/images/user-icon.svg" alt="User log in">
+            <img src="<?php bloginfo('template_directory');?>/images/heart-icon.svg" alt="Favourites">
+            <img src="<?php bloginfo('template_directory');?>/images/bag-icon.svg" alt="Add to bag">
         </div>
     </nav>
 </header>

@@ -18,3 +18,33 @@
         document.getElementById('scrollWrapper').attachEvent("onmousewheel", scrollHorizontally);
     }
 })();
+
+// collapsible mobile menu for 'Shop by brand' 
+/*
+var subNavLink = document.getElementById("shop-by-brand");
+
+subNavLink.addEventListener("click", function() {
+    var subNav = document.getElementsByClassName("vintage-brand-subnav");
+    if (subNav.style.display === "none") {
+        subNav.style.display = "block";
+    } else {
+        subNav.style.display = "none";
+    }
+});
+*/
+
+//animation for mobile menu
+
+window.onload = function(){
+	
+    document.getElementById("burger-button").addEventListener("click", function(event){
+            event.preventDefault(); // stops the element from doing it's usual stuff
+            document.getElementById("body-id").classList.add("nav-active");
+        });
+    
+        // remove class "nav-active" from <body> when #menu-btn-close is clicked
+        document.getElementById("burger-button").addEventListener("click", function(event){
+            event.preventDefault(); // stops the element from doing it's usual stuff
+            document.getElementById("body-id").classList.remove("nav-active");
+        });
+    }
