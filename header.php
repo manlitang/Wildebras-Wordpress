@@ -9,7 +9,7 @@
 
     <?php wp_head();?>
 </head>
-<body id="body-id">
+<body>
 <header>
     <nav>
         <div id="burger-button" class="burger">
@@ -22,7 +22,7 @@
         </a>
 
         <div class="nav-links nav-links--mobile">
-        <ul>
+        <ul id="nav-container">
             <div class="search-bar search-bar--mobile">
                 <input type="text" placeholder="Search product...">
                 <button type="submit"><img src="<?php bloginfo('template_directory');?>/images/search.svg" alt="Search product"></button>
@@ -58,7 +58,7 @@
                                         echo "mega-menu-column--biggest";
                                     }
                                 ?> mega-menu-column">
-                                    <ul>
+                                    <ul id="nav-container-links1">
                                     <?php
                                         if ($item->title == "Shop vintage") {
                                             echo "<li class=\"mega-menu-title\" id=\"shop-by-product\"><a href=\"#\">Shop by product</a></li>";
@@ -89,7 +89,7 @@
                                         echo "mega-menu-column--biggest";
                                     }
                                 ?> mega-menu-column">
-                                    <ul>
+                                    <ul id="nav-container-links2">
                                     <?php
                                         if ($item->title == "Shop vintage") {
                                             echo "<li class=\"mega-menu-title\" id=\"shop-by-brand\"><a href=\"#\">Shop by brand</a></li>";

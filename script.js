@@ -1,3 +1,24 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    navSlide();
+});
+
+const navSlide = () => {
+    const burger = document.getElementById('burger-button');
+    const nav = document.getElementById('nav-container');
+    const navLinks1 = document.getElementById('nav-container-links1');
+    const navLinks2 = document.getElementById('nav-container-links2');
+    const navLinks3 = document.querySelector('.subnav');
+
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        navLinks1.classList.toggle('nav-active');
+        navLinks2.classList.toggle('nav-active');
+        navLinks3.classList.toggle('nav-active');
+    });
+}
+
+/* 
 (function() {
     function scrollHorizontally(e) {
         e = window.event || e;
@@ -18,6 +39,7 @@
         document.getElementById('scrollWrapper').attachEvent("onmousewheel", scrollHorizontally);
     }
 })();
+*/
 
 // collapsible mobile menu for 'Shop by brand' 
 /*
@@ -32,19 +54,3 @@ subNavLink.addEventListener("click", function() {
     }
 });
 */
-
-//animation for mobile menu
-
-window.onload = function(){
-	
-    document.getElementById("burger-button").addEventListener("click", function(event){
-            event.preventDefault(); // stops the element from doing it's usual stuff
-            document.getElementById("body-id").classList.add("nav-active");
-        });
-    
-        // remove class "nav-active" from <body> when #menu-btn-close is clicked
-        document.getElementById("burger-button").addEventListener("click", function(event){
-            event.preventDefault(); // stops the element from doing it's usual stuff
-            document.getElementById("body-id").classList.remove("nav-active");
-        });
-    }
