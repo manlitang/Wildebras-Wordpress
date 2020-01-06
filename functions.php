@@ -1,7 +1,7 @@
 <?php
 
 function load_stylesheets() {
-    wp_register_style('stylesheet', get_template_directory_uri() . '/style.css', '', 5.10, 'all');
+    wp_register_style('stylesheet', get_template_directory_uri() . '/style.css', '', 5.11, 'all');
     wp_enqueue_style('stylesheet');
 }
 
